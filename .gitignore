@@ -1,14 +1,15 @@
-.gradle
-/build/
+ast-parser/.gradle
+ast-parser/build/
+ast-parser/.idea
 
 # Ignore Gradle GUI config
-gradle-app.setting
+ast-parser/gradle-app.setting
 
 # Avoid ignoring Gradle wrapper jar file (.jar files are usually ignored)
-!gradle-wrapper.jar
+!ast-parser/gradle-wrapper.jar
 
 # Cache of project
-.gradletasknamecache
+ast-parser/.gradletasknamecache
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
-# gradle/wrapper/gradle-wrapper.properties
+# ast-parser/gradle/wrapper/gradle-wrapper.properties
