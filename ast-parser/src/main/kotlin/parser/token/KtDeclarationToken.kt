@@ -4,15 +4,13 @@ import parser.common.KtType
 import parser.common.ParserException
 
 class KtDeclarationToken(override val value: String,
-                         var id: KtIdToken,
-                         var rightHand: KtRightHandExpression,
-                         var varType: KtTypeToken) : KtToken {
+                         var leftHand: KtVarToken? = null,
+                         var rightHand: KtRightHandExpression? = null) : KtExpressionToken(value, leftHand, rightHand) {
 
         override fun addChild(token: KtToken) {
             when(token) {
-                is KtIdToken -> id = token
+                is KtVarToken -> leftHand = token
                 is KtRightHandExpression -> rightHand = token
-                is KtTypeToken -> varType = token
                 else -> throw ParserException("Add wrong token as child for KtDeclarationToken $value")
             }
         }
