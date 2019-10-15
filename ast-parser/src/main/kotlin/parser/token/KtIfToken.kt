@@ -13,5 +13,6 @@ class KtIfToken(override val value : String,
             else -> throw ParserException("Add wrong token as child for KtIfToken $value")
         }
     }
+    override val process: (List<String>) -> Unit = {}
     override val type : KtType = KtType.IF
 }

@@ -8,4 +8,5 @@ class KtClassToken(override val value: String,
     override fun addChild(token: KtToken) {
         TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
     }
+    override val process: (List<String>) -> Unit = {}
 }

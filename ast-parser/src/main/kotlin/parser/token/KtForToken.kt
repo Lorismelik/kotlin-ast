@@ -16,6 +16,7 @@ class KtForToken(override val value : String,
         }
     }
     override val type : KtType = KtType.IF
+    override val process: (List<String>) -> Unit = {}
 
     private fun setConditions(token : KtExpressionToken){
         if (firstCondition == null)  { firstCondition = token; return }

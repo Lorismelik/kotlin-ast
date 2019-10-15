@@ -10,4 +10,5 @@ class KtReturnToken (override val value : String,
         else throw ParserException("Add wrong token as child for KtReturnToken $value")
     }
     override val type : KtType = KtType.TYPE
+    override val process: (List<String>) -> Unit = {}
 }
