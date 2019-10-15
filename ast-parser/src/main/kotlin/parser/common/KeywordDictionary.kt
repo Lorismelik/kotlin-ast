@@ -5,6 +5,7 @@ class KeywordDictionary {
         const val PLUS = "+"
         const val MINUS = "-"
         const val INCR = "++"
+        const val DECR = "--"
         const val MULT = "*"
         const val DIV = "/"
         const val PROC = "%"
@@ -23,6 +24,13 @@ class KeywordDictionary {
         const val COLON = ":"
         const val COMMA = ","
         const val SEMICOLON = ";"
+        const val EQ = "=="
+        const val NEQ = "!="
+        const val GREATER = ">"
+        const val LESSER = "<"
+        const val GT = ">="
+        const val LT = "<="
+        const val ASSIGN = "="
     }
 
     val operators : List<String> = listOf(
@@ -32,6 +40,15 @@ class KeywordDictionary {
         MULT,
         DIV,
         PROC
+    )
+
+    val comparison : List<String> = listOf(
+        EQ,
+        NEQ,
+        GREATER,
+        LESSER,
+        GT,
+        LT
     )
 
 }
