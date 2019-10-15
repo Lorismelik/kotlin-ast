@@ -7,10 +7,10 @@ import parser.common.KtType
 class KtImportToken(override val value : String = IMPORT,
                     var statement : KtStatementToken? = null) : KtToken {
 
-    override val  process : (String) -> Unit = { addChild(KtStatementToken("^$IMPORT ".toRegex().replace(it, ""))) }
+    override val  process : (List<String>) -> Unit = { addChild(KtStatementToken("^$IMPORT ".toRegex().replace(it.first(), ""))) }
 
     constructor (body : List<String>,
-                 value: String = IMPORT): this(value) {
+                 value: String = ""): this(value) {
         processToken(body)
     }
 

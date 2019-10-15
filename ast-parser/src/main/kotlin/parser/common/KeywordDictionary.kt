@@ -31,6 +31,8 @@ class KeywordDictionary {
         const val GT = ">="
         const val LT = "<="
         const val ASSIGN = "="
+        const val VAR = "var"
+        const val VAL = "val"
     }
 
     val operators : List<String> = listOf(

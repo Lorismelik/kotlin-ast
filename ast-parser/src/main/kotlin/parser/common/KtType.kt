@@ -7,7 +7,7 @@ enum  class KtType {
     BODY,
     MODIFIER,
     TYPE,
-    VAR,
+    VARIABLE,
     ID,
     EXPRESSION,
     DECL,

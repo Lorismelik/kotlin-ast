@@ -7,9 +7,9 @@ interface KtToken {
     val type : KtType
     val value : String
     fun addChild(token : KtToken)
-    val process : (String) -> Unit
+    val process : (List<String>) -> Unit
     tailrec fun processToken(body : List<String>) {
-        process(body.first())
+        process(body)
         val lst = body.drop(0)
         return if (lst.isEmpty()) Unit else processToken(lst)
     }

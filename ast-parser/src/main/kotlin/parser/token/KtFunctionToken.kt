@@ -2,6 +2,7 @@ package parser.token
 
 import parser.common.KtType
 import parser.common.ParserException
+import parser.defineArgs
 
 class KtFunctionToken(override val value: String,
                       val modifiers : MutableList<KtModifierToken> = ArrayList(),
@@ -17,4 +18,13 @@ class KtFunctionToken(override val value: String,
         }
     }
     override val  type : KtType = KtType.FUNCTION
+
+    override val  process : (List<String>) -> Unit = {}
+
+    constructor (value: String,
+                 args: String,
+                 body : List<String>) : this(value) {
+        defineArgs(args).forEach{addChild(KtVarToken(listOf(it)))}
+        addChild(KtBodyToken(body.drop(0)))
+    }
 }

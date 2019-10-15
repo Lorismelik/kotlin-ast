@@ -12,12 +12,15 @@ fun String.splitInLines() : List<String>  = this.lines()
 fun deleteFirstSpace(str : String) : String = str.replace("^\\s".toRegex(), "")
 infix fun <T> T.then(func: (T) -> T): T = func(this)
 fun defineBody(body: List<String>) : List<String>{
-    var deepCounter = 0
+    var deepCounter = 1
     val result = ArrayList<String>()
     for(line in body) {
         deepCounter += CBF.toRegex().findAll(line).count()
         deepCounter -= OBF.toRegex().findAll(line).count()
-        if (deepCounter<=0) return result else result.add(line)
+        if (deepCounter<=0) {
+            body.drop(result.size)
+            return result
+        } else result.add(line)
     }
     throw ParserException("Could not define body")
 }
