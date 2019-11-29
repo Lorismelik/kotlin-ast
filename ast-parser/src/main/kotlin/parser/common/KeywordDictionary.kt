@@ -20,6 +20,8 @@ class KeywordDictionary {
         const val CB = ")"
         const val OBF = "{"
         const val CBF = "}"
+        const val OBS = "["
+        const val CBS = "]"
         const val STRING = "\""
         const val COLON = ":"
         const val COMMA = ","
@@ -33,24 +35,15 @@ class KeywordDictionary {
         const val ASSIGN = "="
         const val VAR = "var"
         const val VAL = "val"
+        const val UNDEFINED = "undefined"
+        const val IN = "in"
+        const val SPACE = " "
+        const val ARROW ="->"
+        const val NEXT_LINE = "\n"
+        const val LABEL = "label"
+        const val DIGRAPH = "digraph"
+
+        val opRegEx = "$GT|$LT|[$MULT$PLUS$MINUS$DIV$PROC$LESSER$GREATER$EQ$NEQ]".toRegex()
+
     }
-
-    val operators : List<String> = listOf(
-        PLUS,
-        MINUS,
-        INCR,
-        MULT,
-        DIV,
-        PROC
-    )
-
-    val comparison : List<String> = listOf(
-        EQ,
-        NEQ,
-        GREATER,
-        LESSER,
-        GT,
-        LT
-    )
-
 }

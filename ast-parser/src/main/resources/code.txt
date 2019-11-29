@@ -1,19 +1,12 @@
 import java.util.Scanner
 
-fun euclidean(num1: Int, num2: Int):Int {
-    var Num1 = num1
-    var Num2 = num2
-    if (Num1 == 0)
-        return Num2
-
-    else
-        return euclidean(Num2 % Num1, Num1)
-}
-
 fun main() {
-    val scanner = Scanner(System.`in`)
-    println("Please Enter Two Integers.")
-    val num1 = scanner.nextInt()
-    val num2 = scanner.nextInt()
-    println("GCD of $num1 and $num2 is ${euclidean(num1, num2)}")
+    val scanner = 5 + 5
+    val lol = scanner + 1
+    if (lol > 10) {
+        for (line in lines) {
+            val string = '123'
+         }
+    }
+    return lol * 2
 }

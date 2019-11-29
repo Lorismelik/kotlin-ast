@@ -1,16 +1,17 @@
 package parser.token
 
-import parser.common.KeywordDictionary
 import parser.common.KtType
 
 interface KtToken {
+    val tokenId : Int
     val type : KtType
     val value : String
     fun addChild(token : KtToken)
-    val process : (List<String>) -> Unit
-    tailrec fun processToken(body : List<String>) {
+    val process : (MutableList<String>) -> Unit
+    val children: MutableList<KtToken>
+    tailrec fun processToken(body : MutableList<String>) {
         process(body)
-        val lst = body.drop(0)
-        return if (lst.isEmpty()) Unit else processToken(lst)
+        body.removeAt(0)
+        return if (body.isEmpty()) Unit else processToken(body)
     }
 }

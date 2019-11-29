@@ -1,6 +1,7 @@
 package parser
 
 import parser.token.KtFileToken
+import parser.token.KtToken
 
 class Parser(var text: String, val fileName: String){
 
@@ -9,9 +10,8 @@ class Parser(var text: String, val fileName: String){
             .map{ it then ::deleteExtraSpace then :: deleteFirstSpace then ::deleteTabs}
             .filter{it.isNotBlank()}
 
-    fun buildAst(){
+    fun buildAst() : KtToken {
         val formattedLines = prepareText(text)
-        val fileToken = KtFileToken(fileName, formattedLines)
-        print("")
+        return KtFileToken(fileName, formattedLines as MutableList<String>)
     }
 }

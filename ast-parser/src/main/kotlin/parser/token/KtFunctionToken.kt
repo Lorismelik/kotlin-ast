@@ -1,5 +1,6 @@
 package parser.token
 
+import parser.common.IdGenerator
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineArgs
@@ -7,7 +8,9 @@ import parser.defineArgs
 class KtFunctionToken(override val value: String,
                       val modifiers : MutableList<KtModifierToken> = ArrayList(),
                       val args : MutableList<KtVarToken> = ArrayList(),
-                      var body : KtBodyToken? = null) : KtToken {
+                      var body : KtBodyToken? = null,
+                      override val children: MutableList<KtToken> = ArrayList(),
+                      override val tokenId: Int = IdGenerator.generateId()) : KtToken {
 
     override fun addChild(token: KtToken) {
         when(token) {
@@ -16,6 +19,7 @@ class KtFunctionToken(override val value: String,
             is KtBodyToken -> body = token
             else -> throw ParserException("Add wrong token as child for KtFunctionToken $value")
         }
+        children.add(token)
     }
     override val  type : KtType = KtType.FUNCTION
 
@@ -23,8 +27,8 @@ class KtFunctionToken(override val value: String,
 
     constructor (value: String,
                  args: String,
-                 body : List<String>) : this(value) {
+                 body : MutableList<String>) : this(value) {
         defineArgs(args).forEach{addChild(KtVarToken(listOf(it)))}
-        addChild(KtBodyToken(body.drop(0)))
+        addChild(KtBodyToken(body))
     }
 }

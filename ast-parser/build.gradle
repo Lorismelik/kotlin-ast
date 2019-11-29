@@ -15,6 +15,7 @@ apply plugin: 'application'
 
 dependencies {
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    compile group: 'guru.nidi', name: 'graphviz-kotlin', version: '0.12.1'
 }
 
 mainClassName = 'entry.AppKt'

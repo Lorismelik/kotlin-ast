@@ -8,6 +8,7 @@ enum  class KtType {
     MODIFIER,
     TYPE,
     VARIABLE,
+    VARTYPE,
     ID,
     EXPRESSION,
     DECL,
@@ -15,6 +16,6 @@ enum  class KtType {
     ELSE,
     RETURN,
     IMPORT,
-    STATEMENT
-
+    STATEMENT,
+    FOR
 }

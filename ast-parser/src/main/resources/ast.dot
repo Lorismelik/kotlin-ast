@@ -1,0 +1,125 @@
+digraph{
+3[label=" STATEMENT
+java.util.Scanner"];
+2[label=" IMPORT
+"];
+8[label=" VARTYPE
+val"];
+9[label=" ID
+ scanner "];
+10[label=" TYPE
+undefined"];
+7[label=" VARIABLE
+variable"];
+12[label=" STATEMENT
+ 5 "];
+13[label=" STATEMENT
+ 5"];
+11[label=" EXPRESSION
++"];
+6[label=" EXPRESSION
+="];
+16[label=" VARTYPE
+val"];
+17[label=" ID
+ lol "];
+18[label=" TYPE
+undefined"];
+15[label=" VARIABLE
+variable"];
+20[label=" STATEMENT
+ scanner "];
+21[label=" STATEMENT
+ 1"];
+19[label=" EXPRESSION
++"];
+14[label=" EXPRESSION
+="];
+24[label=" STATEMENT
+lol "];
+25[label=" STATEMENT
+ 10 "];
+23[label=" EXPRESSION
+>"];
+29[label=" ID
+line"];
+30[label=" ID
+lines "];
+28[label=" EXPRESSION
+in"];
+34[label=" VARTYPE
+val"];
+35[label=" ID
+ string "];
+36[label=" TYPE
+undefined"];
+33[label=" VARIABLE
+variable"];
+37[label=" STATEMENT
+ '123'"];
+32[label=" EXPRESSION
+="];
+31[label=" BODY
+"];
+27[label=" FOR
+for"];
+26[label=" BODY
+"];
+22[label=" IF
+if"];
+40[label=" STATEMENT
+ lol "];
+41[label=" STATEMENT
+ 2"];
+39[label=" EXPRESSION
+*"];
+38[label=" RETURN
+"];
+5[label=" BODY
+"];
+4[label=" FUNCTION
+main"];
+1[label=" FILE
+code.txt"];
+1 -> 2
+2 -> 3
+1 -> 4
+4 -> 5
+5 -> 6
+6 -> 7
+7 -> 8
+7 -> 9
+7 -> 10
+6 -> 11
+11 -> 12
+11 -> 13
+5 -> 14
+14 -> 15
+15 -> 16
+15 -> 17
+15 -> 18
+14 -> 19
+19 -> 20
+19 -> 21
+5 -> 22
+22 -> 23
+23 -> 24
+23 -> 25
+22 -> 26
+26 -> 27
+27 -> 28
+28 -> 29
+28 -> 30
+27 -> 31
+31 -> 32
+32 -> 33
+33 -> 34
+33 -> 35
+33 -> 36
+32 -> 37
+5 -> 38
+38 -> 39
+39 -> 40
+39 -> 41
+
+}

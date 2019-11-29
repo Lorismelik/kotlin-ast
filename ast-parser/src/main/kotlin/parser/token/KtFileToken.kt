@@ -1,7 +1,9 @@
 package parser.token
 
+import parser.common.IdGenerator
 import parser.common.KeywordDictionary.Companion.FUN
 import parser.common.KeywordDictionary.Companion.IMPORT
+import parser.common.KeywordDictionary.Companion.OB
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineBody
@@ -9,23 +11,26 @@ import parser.defineBody
 class KtFileToken(override val value: String,
                   val classes : MutableList<KtClassToken> = ArrayList(),
                   val functions : MutableList<KtFunctionToken> = ArrayList(),
-                  val imports : MutableList<KtImportToken> = ArrayList()) : KtToken {
+                  val imports : MutableList<KtImportToken> = ArrayList(),
+                  override val children: MutableList<KtToken> = ArrayList(),
+                  override val tokenId: Int = IdGenerator.generateId()) : KtToken {
     override val  type : KtType = KtType.FILE
-    override val  process : (List<String>) -> Unit = { lines ->
+    override val  process : (MutableList<String>) -> Unit = { lines ->
         val line = lines.first()
         when {
             "^$IMPORT".toRegex().containsMatchIn(line) -> addChild(KtImportToken(listOf(line)))
             "^$FUN".toRegex().containsMatchIn(line) -> {
                 //TODO modifiers
-                val signatureParts = "OB".toRegex().split(line.replace("^$FUN ".toRegex(), ""), 1)
-                val body = defineBody(lines.drop(0))
+                val signatureParts = "\\$OB".toRegex().split(line.replace("^$FUN ".toRegex(), ""), 2)
+                lines.removeAt(0)
+                val body = defineBody(lines)
                 addChild(KtFunctionToken(signatureParts[0], signatureParts[1], body))
             }
         }
     }
 
     constructor (value: String,
-                 body : List<String>) : this(value) {
+                 body : MutableList<String>) : this(value) {
         processToken(body)
     }
 
@@ -37,5 +42,6 @@ class KtFileToken(override val value: String,
             is KtImportToken -> imports.add(token)
             else -> throw ParserException("Add wrong token as child for KtFileToken $value")
         }
+        children.add(token)
     }
 }
