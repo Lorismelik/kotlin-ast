@@ -18,6 +18,7 @@ fun defineBody(body: MutableList<String>) : MutableList<String>{
         deepCounter -=  CBF.toRegex().findAll(line).count()
         deepCounter += "\\$OBF".toRegex().findAll(line).count()
         if (deepCounter<=0) {
+            result.add(line)
             result.forEach { _ -> body.removeAt(0) }
             return result
         } else result.add(line)

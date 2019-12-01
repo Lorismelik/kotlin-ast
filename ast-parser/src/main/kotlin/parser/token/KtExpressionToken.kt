@@ -4,6 +4,7 @@ package parser.token
 import parser.common.IdGenerator
 import parser.common.KeywordDictionary.Companion.ASSIGN
 import parser.common.KeywordDictionary.Companion.IN
+import parser.common.KeywordDictionary.Companion.SPACE
 import parser.common.KeywordDictionary.Companion.opRegEx
 import parser.common.KtType
 
@@ -37,19 +38,26 @@ open class KtExpressionToken(override val value: String,
         if (opRegEx.containsMatchIn(assign[1])) {
             addChild(KtExpressionToken(opRegEx.find(assign[1])!!.value, assign[1]))
         } else {
-            addChild(KtStatementToken(assign[1]))
+            addChild(defineVarOrStatement(assign[1]))
         }
 
     }
 
     private fun processIn(inExp : List<String>) {
-        addChild(KtIdToken(inExp[0]))
-        addChild(KtIdToken(inExp[1]))
+        addChild(defineVarOrStatement(inExp[0]))
+        addChild(defineVarOrStatement(inExp[1]))
     }
 
     private fun processRightExpression(parts : List<String>) {
-        addChild(KtStatementToken(parts[0]))
-        addChild(KtStatementToken(parts[1]))
+        addChild(defineVarOrStatement(parts[0]))
+        addChild(defineVarOrStatement(parts[1]))
+    }
+
+    private fun defineVarOrStatement(str : String) : KtToken {
+        val token = str.replace(SPACE, "")
+        return if (token.contains("'") || token.toIntOrNull() != null)
+            KtStatementToken(token)
+        else KtIdToken(token)
     }
 
     override val type : KtType = KtType.EXPRESSION

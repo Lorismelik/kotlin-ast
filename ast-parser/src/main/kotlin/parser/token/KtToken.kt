@@ -11,7 +11,7 @@ interface KtToken {
     val children: MutableList<KtToken>
     tailrec fun processToken(body : MutableList<String>) {
         process(body)
-        body.removeAt(0)
-        return if (body.isEmpty()) Unit else processToken(body)
+        if (body.isEmpty()) return else body.removeAt(0)
+        return if (body.isEmpty()) Unit else  processToken(body)
     }
 }

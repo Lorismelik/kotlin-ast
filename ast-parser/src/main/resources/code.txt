@@ -8,5 +8,8 @@ fun main() {
             val string = '123'
          }
     }
+    else {
+        var anotherLol = 'Hello World'
+    }
     return lol * 2
 }

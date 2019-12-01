@@ -12,9 +12,9 @@ undefined"];
 7[label=" VARIABLE
 variable"];
 12[label=" STATEMENT
- 5 "];
+5"];
 13[label=" STATEMENT
- 5"];
+5"];
 11[label=" EXPRESSION
 +"];
 6[label=" EXPRESSION
@@ -27,24 +27,24 @@ val"];
 undefined"];
 15[label=" VARIABLE
 variable"];
-20[label=" STATEMENT
- scanner "];
+20[label=" ID
+scanner"];
 21[label=" STATEMENT
- 1"];
+1"];
 19[label=" EXPRESSION
 +"];
 14[label=" EXPRESSION
 ="];
-24[label=" STATEMENT
-lol "];
+24[label=" ID
+lol"];
 25[label=" STATEMENT
- 10 "];
+10"];
 23[label=" EXPRESSION
 >"];
 29[label=" ID
 line"];
 30[label=" ID
-lines "];
+lines"];
 28[label=" EXPRESSION
 in"];
 34[label=" VARTYPE
@@ -56,7 +56,7 @@ undefined"];
 33[label=" VARIABLE
 variable"];
 37[label=" STATEMENT
- '123'"];
+'123'"];
 32[label=" EXPRESSION
 ="];
 31[label=" BODY
@@ -65,16 +65,24 @@ variable"];
 for"];
 26[label=" BODY
 "];
+42[label=" VARTYPE
+var"];
+43[label=" ID
+ anotherLol "];
+44[label=" TYPE
+undefined"];
+41[label=" VARIABLE
+variable"];
+45[label=" STATEMENT
+'HelloWorld'"];
+40[label=" EXPRESSION
+="];
+39[label=" BODY
+"];
+38[label=" ELSE
+else"];
 22[label=" IF
 if"];
-40[label=" STATEMENT
- lol "];
-41[label=" STATEMENT
- 2"];
-39[label=" EXPRESSION
-*"];
-38[label=" RETURN
-"];
 5[label=" BODY
 "];
 4[label=" FUNCTION
@@ -117,9 +125,13 @@ code.txt"];
 33 -> 35
 33 -> 36
 32 -> 37
-5 -> 38
+22 -> 38
 38 -> 39
 39 -> 40
-39 -> 41
+40 -> 41
+41 -> 42
+41 -> 43
+41 -> 44
+40 -> 45
 
 }
