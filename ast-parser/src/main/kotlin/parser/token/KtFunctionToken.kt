@@ -4,6 +4,8 @@ import parser.common.IdGenerator
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineArgs
+import java.util.*
+import kotlin.collections.ArrayList
 
 class KtFunctionToken(override val value: String,
                       val modifiers : MutableList<KtModifierToken> = ArrayList(),
@@ -27,7 +29,8 @@ class KtFunctionToken(override val value: String,
 
     constructor (value: String,
                  args: String,
-                 body : MutableList<String>) : this(value) {
+                 body : LinkedList<String>
+    ) : this(value) {
         defineArgs(args).forEach{addChild(KtVarToken(listOf(it)))}
         addChild(KtBodyToken(body))
     }

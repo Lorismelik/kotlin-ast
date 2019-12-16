@@ -81,27 +81,31 @@ a"];
 +"];
 43[label=" EXPRESSION
 ="];
+51[label=" CONTROLFLOW
+continue"];
 42[label=" BODY
 "];
-55[label=" VARTYPE
+56[label=" VARTYPE
 var"];
-56[label=" ID
+57[label=" ID
  a "];
-57[label=" TYPE
+58[label=" TYPE
 undefined"];
-54[label=" VARIABLE
+55[label=" VARIABLE
 variable"];
-59[label=" ID
+60[label=" ID
 a"];
-60[label=" STATEMENT
+61[label=" STATEMENT
 1"];
-58[label=" EXPRESSION
+59[label=" EXPRESSION
 -"];
-53[label=" EXPRESSION
+54[label=" EXPRESSION
 ="];
-52[label=" BODY
+62[label=" CONTROLFLOW
+break"];
+53[label=" BODY
 "];
-51[label=" ELSE
+52[label=" ELSE
 else"];
 38[label=" IF
 if"];
@@ -111,24 +115,36 @@ if"];
 for"];
 26[label=" BODY
 "];
-65[label=" VARTYPE
+67[label=" VARTYPE
 var"];
-66[label=" ID
+68[label=" ID
  anotherLol "];
-67[label=" TYPE
+69[label=" TYPE
 undefined"];
-64[label=" VARIABLE
+66[label=" VARIABLE
 variable"];
-68[label=" STATEMENT
+70[label=" STATEMENT
 'HelloWorld'"];
-63[label=" EXPRESSION
+65[label=" EXPRESSION
 ="];
-62[label=" BODY
+72[label=" STATEMENT
+ 'OOOOO'"];
+71[label=" CONTROLFLOW
+return"];
+64[label=" BODY
 "];
-61[label=" ELSE
+63[label=" ELSE
 else"];
 22[label=" IF
 if"];
+75[label=" ID
+lol"];
+76[label=" STATEMENT
+'2222222222222222222222222222222222222222222222222'"];
+74[label=" EXPRESSION
+*"];
+73[label=" CONTROLFLOW
+return"];
 5[label=" BODY
 "];
 4[label=" FUNCTION
@@ -184,23 +200,31 @@ code.txt"];
 43 -> 48
 48 -> 49
 48 -> 50
-38 -> 51
-51 -> 52
+42 -> 51
+38 -> 52
 52 -> 53
 53 -> 54
 54 -> 55
-54 -> 56
-54 -> 57
-53 -> 58
-58 -> 59
-58 -> 60
-22 -> 61
-61 -> 62
-62 -> 63
+55 -> 56
+55 -> 57
+55 -> 58
+54 -> 59
+59 -> 60
+59 -> 61
+53 -> 62
+22 -> 63
 63 -> 64
 64 -> 65
-64 -> 66
-64 -> 67
-63 -> 68
+65 -> 66
+66 -> 67
+66 -> 68
+66 -> 69
+65 -> 70
+64 -> 71
+71 -> 72
+5 -> 73
+73 -> 74
+74 -> 75
+74 -> 76
 
 }

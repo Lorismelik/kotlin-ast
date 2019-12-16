@@ -9,12 +9,13 @@ import parser.common.KeywordDictionary.Companion.OBF
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineBody
+import java.util.*
 
 class KtIfToken(override val value : String,
                 var condition : KtExpressionToken? = null,
                 var ifBody : KtBodyToken? = null,
                 var elseBody: KtElseToken? = null,
-                override val children: MutableList<KtToken> = ArrayList(),
+                override val children: MutableList<KtToken> = mutableListOf(),
                 override val tokenId: Int = IdGenerator.generateId()) : KtToken {
     override fun addChild(token: KtToken) {
         when(token) {
@@ -26,7 +27,7 @@ class KtIfToken(override val value : String,
         children.add(token)
     }
     override val process: (MutableList<String>) -> Unit = {}
-    constructor(cond : String, body : MutableList<String>, value : String = IF) : this(value) {
+    constructor(cond : String, body : LinkedList<String>, value : String = IF) : this(value) {
         addChild(KtExpressionToken(KeywordDictionary.opRegEx.find(cond)!!.value,"[\\$CB|\\$OBF]".toRegex().replace(cond, "")))
         addChild(KtBodyToken(defineBody(body)))
         if (body.first().contains(ELSE))  {

@@ -7,6 +7,8 @@ import parser.common.KeywordDictionary.Companion.OB
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineBody
+import java.util.*
+import kotlin.collections.ArrayList
 
 class KtFileToken(override val value: String,
                   val classes : MutableList<KtClassToken> = ArrayList(),
@@ -15,7 +17,7 @@ class KtFileToken(override val value: String,
                   override val children: MutableList<KtToken> = ArrayList(),
                   override val tokenId: Int = IdGenerator.generateId()) : KtToken {
     override val  type : KtType = KtType.FILE
-    override val  process : (MutableList<String>) -> Unit = { lines ->
+    override val  process : (LinkedList<String>) -> Unit = { lines ->
         val line = lines.first()
         when {
             "^$IMPORT".toRegex().containsMatchIn(line) -> addChild(KtImportToken(listOf(line)))
@@ -30,7 +32,8 @@ class KtFileToken(override val value: String,
     }
 
     constructor (value: String,
-                 body : MutableList<String>) : this(value) {
+                 body : LinkedList<String>
+    ) : this(value) {
         processToken(body)
     }
 

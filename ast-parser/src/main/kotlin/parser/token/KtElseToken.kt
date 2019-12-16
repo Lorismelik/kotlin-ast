@@ -9,6 +9,8 @@ import parser.common.KeywordDictionary.Companion.OBF
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineBody
+import java.util.*
+import kotlin.collections.ArrayList
 
 class KtElseToken(override val value : String,
                 var elseBody : KtBodyToken? = null,
@@ -21,8 +23,8 @@ class KtElseToken(override val value : String,
         }
         children.add(token)
     }
-    override val process: (MutableList<String>) -> Unit = {}
-    constructor(body : MutableList<String>, value : String = ELSE) : this(value) {
+    override val process: (LinkedList<String>) -> Unit = {}
+    constructor(body : LinkedList<String>, value : String = ELSE) : this(value) {
         addChild(KtBodyToken(defineBody(body)))
     }
     override val type : KtType = KtType.ELSE

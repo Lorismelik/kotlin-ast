@@ -2,6 +2,7 @@ package parser
 
 import parser.token.KtFileToken
 import parser.token.KtToken
+import java.util.*
 
 class Parser(var text: String, val fileName: String){
 
@@ -12,6 +13,6 @@ class Parser(var text: String, val fileName: String){
 
     fun buildAst() : KtToken {
         val formattedLines = prepareText()
-        return KtFileToken(fileName, formattedLines as MutableList<String>)
+        return KtFileToken(fileName, LinkedList(formattedLines))
     }
 }

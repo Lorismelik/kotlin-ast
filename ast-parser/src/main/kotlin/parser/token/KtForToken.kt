@@ -8,6 +8,8 @@ import parser.common.KeywordDictionary.Companion.OBF
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineBody
+import java.util.*
+import kotlin.collections.ArrayList
 
 class KtForToken(override val value : String,
                  var condition : KtExpressionToken? = null,
@@ -24,7 +26,7 @@ class KtForToken(override val value : String,
     }
     override val type : KtType = KtType.FOR
     override val process: (MutableList<String>) -> Unit = {}
-    constructor(cond : String, body : MutableList<String>, value : String = FOR) : this(value) {
+    constructor(cond : String, body : LinkedList<String>, value : String = FOR) : this(value) {
         addChild(KtExpressionToken(IN, "\\$CB|\\$OBF".toRegex().replace(cond, "")))
         addChild(KtBodyToken(defineBody(body)))
     }

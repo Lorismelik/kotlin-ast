@@ -8,15 +8,17 @@ fun main() {
             val string = '123'
             if (ae > 4) {
                 val a = a + 1
+                continue
             }
             else {
-
                 var a = a - 1
+                break
             }
          }
     }
     else {
         var anotherLol = 'Hello World'
+        return 'OOOOO'
     }
-    return lol * 2
+    return lol * '2222222222222222222222222222222222222222222222222'
 }

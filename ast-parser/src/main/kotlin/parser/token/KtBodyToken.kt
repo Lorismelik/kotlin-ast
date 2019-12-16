@@ -10,6 +10,8 @@ import parser.common.KeywordDictionary.Companion.RETURN
 import parser.common.KtType
 import parser.common.ParserException
 import parser.defineArgs
+import java.util.*
+import kotlin.collections.ArrayList
 
 class KtBodyToken(override val value: String,
                   val expressions : MutableList<KtExpressionToken> = ArrayList(),
@@ -29,26 +31,28 @@ class KtBodyToken(override val value: String,
         children.add(token)
     }
 
-    constructor(body : MutableList<String>,
+    constructor(body : LinkedList<String>,
                 value : String = ""
     ) : this(value) {
         processToken(body)
     }
 
-    override val process : (MutableList<String>) -> Unit = { lines ->
+    override val process : (LinkedList<String>) -> Unit = { lines ->
         val line = lines.first()
         when {
             "[^$ASSIGN]$ASSIGN[^$ASSIGN]".toRegex().containsMatchIn(line) -> addChild(KtExpressionToken(ASSIGN, line))
             "^$FOR".toRegex().containsMatchIn(line) -> {
-                lines.removeAt(0)
+                val deletedSignature = lines.removeAt(0)
                 addChild(KtForToken(".+\\$OB".toRegex().replace(line, ""), lines))
+                lines.push(deletedSignature)
             }
             "^$IF".toRegex().containsMatchIn(line) -> {
-                lines.removeAt(0)
+                val deletedSignature = lines.removeAt(0)
                 addChild(KtIfToken(".+\\$OB".toRegex().replace(line, ""), lines))
+                lines.push(deletedSignature)
             }
             KeywordDictionary.controlFlowKeywords.containsMatchIn(line) -> addChild(KtReturnToken(
-                listOf("^$RETURN".toRegex().replace(line, "")),
+                listOf(KeywordDictionary.controlFlowKeywords.replace(line, "")),
                 KeywordDictionary.controlFlowKeywords.find(line)!!.value
             ))
         }

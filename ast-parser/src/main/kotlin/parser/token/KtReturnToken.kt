@@ -17,10 +17,12 @@ class KtReturnToken (override val value : String,
     constructor (body : List<String>,
                  value: String = ""): this(value) {
         val line = body.first()
-        if (KeywordDictionary.opRegEx.containsMatchIn(line))
-            addChild(KtExpressionToken(KeywordDictionary.opRegEx.find(line)!!.value, line))
-        else
-            addChild(KtStatementToken(KeywordDictionary.controlFlowKeywords.replace(body.first(), "")))
+        if (KeywordDictionary.controlFlowKeywords.replace(line, "").isNotEmpty()) {
+            if (KeywordDictionary.opRegEx.containsMatchIn(line))
+                addChild(KtExpressionToken(KeywordDictionary.opRegEx.find(line)!!.value, line))
+            else
+                addChild(KtStatementToken(KeywordDictionary.controlFlowKeywords.replace(line, "")))
+        }
     }
     override val type : KtType = KtType.CONTROLFLOW
     override val process: (List<String>) -> Unit = {}
