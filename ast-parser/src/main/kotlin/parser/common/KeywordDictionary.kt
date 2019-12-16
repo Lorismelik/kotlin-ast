@@ -47,7 +47,6 @@ class KeywordDictionary {
 
         val opRegEx = "$GT|$LT|[$MULT$PLUS$MINUS$DIV$PROC$LESSER$GREATER$EQ$NEQ]".toRegex()
         val controlFlowKeywords = "$RETURN|$BREAK|$CONTINUE".toRegex()
-
-
+        val breakKey = "$BREAK|$RETURN".toRegex()
     }
 }

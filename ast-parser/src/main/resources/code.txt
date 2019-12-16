@@ -6,7 +6,17 @@ fun main() {
     if (lol > 10) {
         for (line in lines) {
             val string = '123'
+            if (ae > 4) {
+                val a = a + 1
+            }
+            else {
+
+                var a = a - 1
+            }
          }
+    }
+    else {
+        var anotherLol = 'Hello World'
     }
     return lol * 2
 }
