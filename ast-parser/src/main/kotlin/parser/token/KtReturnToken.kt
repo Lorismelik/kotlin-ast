@@ -11,7 +11,7 @@ class KtReturnToken (override val value : String,
                      override val tokenId: Int = IdGenerator.generateId()) : KtToken {
     override fun addChild(token: KtToken) {
         if (token is KtRightHandExpression) returnVal = token
-        else throw ParserException("Add wrong token as child for KtReturnToken $value")
+        else throw ParserException("Add wrong token as child for KtControlFlowToken $value")
         children.add(token)
     }
     constructor (body : List<String>,
@@ -20,8 +20,8 @@ class KtReturnToken (override val value : String,
         if (KeywordDictionary.opRegEx.containsMatchIn(line))
             addChild(KtExpressionToken(KeywordDictionary.opRegEx.find(line)!!.value, line))
         else
-            addChild(KtStatementToken("^${KeywordDictionary.RETURN} ".toRegex().replace(body.first(), "")))
+            addChild(KtStatementToken(KeywordDictionary.controlFlowKeywords.replace(body.first(), "")))
     }
-    override val type : KtType = KtType.RETURN
+    override val type : KtType = KtType.CONTROLFLOW
     override val process: (List<String>) -> Unit = {}
 }

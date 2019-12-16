@@ -47,7 +47,10 @@ class KtBodyToken(override val value: String,
                 lines.removeAt(0)
                 addChild(KtIfToken(".+\\$OB".toRegex().replace(line, ""), lines))
             }
-            "^$RETURN".toRegex().containsMatchIn(line) -> addChild(KtReturnToken(listOf("^$RETURN".toRegex().replace(line, ""))))
+            KeywordDictionary.controlFlowKeywords.containsMatchIn(line) -> addChild(KtReturnToken(
+                listOf("^$RETURN".toRegex().replace(line, "")),
+                KeywordDictionary.controlFlowKeywords.find(line)!!.value
+            ))
         }
     }
 

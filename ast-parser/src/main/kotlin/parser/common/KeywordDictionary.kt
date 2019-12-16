@@ -13,6 +13,8 @@ class KeywordDictionary {
         const val IF = "if"
         const val ELSE = "else"
         const val RETURN = "return"
+        const val BREAK = "break"
+        const val CONTINUE = "continue"
         const val FUN = "fun"
         const val CLASS = "class"
         const val IMPORT = "import"
@@ -44,6 +46,8 @@ class KeywordDictionary {
         const val DIGRAPH = "digraph"
 
         val opRegEx = "$GT|$LT|[$MULT$PLUS$MINUS$DIV$PROC$LESSER$GREATER$EQ$NEQ]".toRegex()
+        val controlFlowKeywords = "$RETURN|$BREAK|$CONTINUE".toRegex()
+
 
     }
 }

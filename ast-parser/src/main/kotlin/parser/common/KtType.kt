@@ -14,7 +14,7 @@ enum  class KtType {
     DECL,
     IF,
     ELSE,
-    RETURN,
+    CONTROLFLOW,
     IMPORT,
     STATEMENT,
     FOR
