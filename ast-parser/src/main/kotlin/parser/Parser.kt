@@ -5,13 +5,13 @@ import parser.token.KtToken
 
 class Parser(var text: String, val fileName: String){
 
-    private fun prepareText(input : String) =
+    private fun prepareText() =
         text.splitInLines()
             .map{ it then ::deleteExtraSpace then :: deleteFirstSpace then ::deleteTabs}
             .filter{it.isNotBlank()}
 
     fun buildAst() : KtToken {
-        val formattedLines = prepareText(text)
+        val formattedLines = prepareText()
         return KtFileToken(fileName, formattedLines as MutableList<String>)
     }
 }

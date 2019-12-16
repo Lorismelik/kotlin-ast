@@ -59,27 +59,73 @@ variable"];
 '123'"];
 32[label=" EXPRESSION
 ="];
+40[label=" ID
+ae"];
+41[label=" STATEMENT
+4"];
+39[label=" EXPRESSION
+>"];
+45[label=" VARTYPE
+val"];
+46[label=" ID
+ a "];
+47[label=" TYPE
+undefined"];
+44[label=" VARIABLE
+variable"];
+49[label=" ID
+a"];
+50[label=" STATEMENT
+1"];
+48[label=" EXPRESSION
++"];
+43[label=" EXPRESSION
+="];
+42[label=" BODY
+"];
+55[label=" VARTYPE
+var"];
+56[label=" ID
+ a "];
+57[label=" TYPE
+undefined"];
+54[label=" VARIABLE
+variable"];
+59[label=" ID
+a"];
+60[label=" STATEMENT
+1"];
+58[label=" EXPRESSION
+-"];
+53[label=" EXPRESSION
+="];
+52[label=" BODY
+"];
+51[label=" ELSE
+else"];
+38[label=" IF
+if"];
 31[label=" BODY
 "];
 27[label=" FOR
 for"];
 26[label=" BODY
 "];
-42[label=" VARTYPE
+65[label=" VARTYPE
 var"];
-43[label=" ID
+66[label=" ID
  anotherLol "];
-44[label=" TYPE
+67[label=" TYPE
 undefined"];
-41[label=" VARIABLE
+64[label=" VARIABLE
 variable"];
-45[label=" STATEMENT
+68[label=" STATEMENT
 'HelloWorld'"];
-40[label=" EXPRESSION
+63[label=" EXPRESSION
 ="];
-39[label=" BODY
+62[label=" BODY
 "];
-38[label=" ELSE
+61[label=" ELSE
 else"];
 22[label=" IF
 if"];
@@ -125,13 +171,36 @@ code.txt"];
 33 -> 35
 33 -> 36
 32 -> 37
-22 -> 38
+31 -> 38
 38 -> 39
 39 -> 40
-40 -> 41
-41 -> 42
-41 -> 43
-41 -> 44
-40 -> 45
+39 -> 41
+38 -> 42
+42 -> 43
+43 -> 44
+44 -> 45
+44 -> 46
+44 -> 47
+43 -> 48
+48 -> 49
+48 -> 50
+38 -> 51
+51 -> 52
+52 -> 53
+53 -> 54
+54 -> 55
+54 -> 56
+54 -> 57
+53 -> 58
+58 -> 59
+58 -> 60
+22 -> 61
+61 -> 62
+62 -> 63
+63 -> 64
+64 -> 65
+64 -> 66
+64 -> 67
+63 -> 68
 
 }
